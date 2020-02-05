@@ -1,0 +1,9 @@
+{application,be_hired,
+             [{applications,[kernel,stdlib,elixir,logger,runtime_tools,jason,
+                             postgrex,ecto_sql]},
+              {description,"be_hired"},
+              {modules,['Elixir.BeHired','Elixir.BeHired.Application',
+                        'Elixir.BeHired.Repo']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.BeHired.Application',[]}}]}.

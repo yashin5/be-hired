@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - /app/deps
+      - /app/_build
+
+  db:
+    image: postgres:11.1-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      
+volumes:
+  postgres_data:
+    driver: local

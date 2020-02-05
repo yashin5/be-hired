@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    environment:
+      MIX_ENV: test
+      DB_NAME: jobs_repository_test
+      DB_USER: ysantos
+      DB_PASSWORD: "@dmin123"
+      DB_HOST: db
+      SECRET_KEY_BASE: "z3UD1p7uhy6c8zTzwiuk+xff4nrKDqikC64S1wCh7wKDxL/BhzhAnONJ9kiYDq+y"
+
+  db:
+    environment:
+      POSTGRES_DB: jobs_repository_test
+      POSTGRES_USER: ysantos
+      POSTGRES_PASSWORD: "@dmin123"
