@@ -3,7 +3,7 @@ defmodule JobRepositoryTest do
 
   alias BeHired.Jobs.JobRepository
 
-  describe "create" do
+  describe "create/1" do
     setup do
       job_data = %{
         title: "Designer Ux",
@@ -67,4 +67,37 @@ defmodule JobRepositoryTest do
       assert error_message == error
     end
   end
+
+  describe "update/2" do
+    setup do
+      {:ok, job} = %{
+        title: "Designer Ux",
+        description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        requirements: "requirements",
+        benefits: "benefits",
+        salary: "100.10",
+        hiring_type: "CLT",
+        vacancies_number: 10,
+        total_people_applied: 15
+       }
+       |> JobRepository.create()
+
+      on_exit(fn ->
+        nil
+      end)
+
+      {:ok, [job_id: job.id]}
+    end
+
+    test "Should be able to update a existing job", %{job_id: job_id} do
+      update_fields = %{title: "Developer Sr"}
+
+      job_updated = JobRepository.update(job_id, update_fields)
+      job_updated_response = job_updated.title
+
+      assert  job_updated_response == update_fields.title
+    end
+  end
+
 end

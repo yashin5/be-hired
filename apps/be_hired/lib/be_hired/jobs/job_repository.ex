@@ -16,6 +16,7 @@ defmodule BeHired.Jobs.JobRepository do
   @spec update(String.t(), list(String.t())) :: {:ok, %Job{}}
   def update(id, fields_to_update) do
     with {:ok, job} <- get(id) do
+      IO.inspect("oi")
       job
       |> Job.changeset_update(fields_to_update)
       |> Repo.update()
