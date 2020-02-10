@@ -36,9 +36,15 @@ defmodule BeHired.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:jason, "~> 1.0"},
+      {:argon2_elixir, "~> 2.0"},
+      {:uuid, "~> 1.1"},
+      {:mox, "~> 0.5.0", only: :test},
+      {:ecto, "~> 3.1"},
       {:ecto_sql, "~> 3.1"},
       {:postgrex, ">= 0.0.0"},
-      {:jason, "~> 1.0"}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
   end
 

@@ -5,7 +5,7 @@ config :be_hired, BeHired.Repo,
   database: System.get_env("DB_NAME") || "jobs_repository_dev",
   username: System.get_env("DB_USER") || "ysantos",
   password: System.get_env("DB_PASSWORD") || "@dmin123",
-  hostname: System.get_env("DB_HOST") || "localhost"
+  hostname: System.get_env("DB_HOST") || "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

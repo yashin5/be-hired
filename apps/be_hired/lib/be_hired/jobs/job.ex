@@ -16,8 +16,8 @@ defmodule BeHired.Jobs.Job do
     field(:benefits, :string)
     field(:salary, :string)
     field(:hiring_type, :string)
-    field(:vacancies_number, :string)
-    field(:total_people_applied, :string)
+    field(:vacancies_number, :integer)
+    field(:total_people_applied, :integer)
 
     timestamps()
   end
